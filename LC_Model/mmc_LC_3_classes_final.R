@@ -15,7 +15,7 @@ setwd("/Users/slubinga/Documents/GitHub/MMC-Demand/LC_Model")
 
 apollo_initialise()
 
-apollo_control = list(modelName ="apollo_LC_3_Classes",
+apollo_control = list(modelName ="mmc_LC_3_Classes",
                       modelDescr ="LC Model with 3 classes",
                       indivID ="ID",
                       nCores=4)
@@ -55,10 +55,10 @@ parnames=c("neither_C1","permhc_C1","dist5_C1","dist15_C1","avail_C1","somepriv_
            "ispoor_C2","ispoor_C3",
            "urban_C2","urban_C3")
 
-startvalues=rep(0,length(parnames))
+#startvalues=rep(0,length(parnames))
 
 # set starting values
-#startvalues=read.csv("lc_3_classes_estimates.csv")[,5]
+startvalues=read.csv("lc_3_classes_estimates.csv")[,5]
 
 # convert the above into a beta vector with names
 apollo_beta=startvalues
