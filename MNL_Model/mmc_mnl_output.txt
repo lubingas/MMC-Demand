@@ -1,9 +1,9 @@
 Model run using Apollo for R, version 0.1.0 
 www.ApolloChoiceModelling.com
 
-Model name                       : apollo_mnl
+Model name                       : mmc_mnl
 Model description                : MNL model
-Model run at                     : 2020-05-08 21:29:14
+Model run at                     : 2020-05-08 22:51:01
 Estimation method                : bfgs
 Model diagnosis                  : successful convergence 
 Number of individuals            : 406
@@ -20,7 +20,7 @@ Adj.Rho-square (0)               :  0.3057
 AIC                              :  7432.16 
 BIC                              :  7516.55 
 Estimated parameters             :  13
-Time taken (hh:mm:ss)            :  00:00:17.78 
+Time taken (hh:mm:ss)            :  00:00:20.91 
 Iterations                       :  0 
 Min abs eigenvalue of hessian    :  36.30999 
 

@@ -14,7 +14,7 @@ setwd("/Users/slubinga/Documents/GitHub/MMC-Demand/MNL_Model/")
 
 apollo_initialise()
 
-apollo_control = list(modelName ="apollo_mnl",
+apollo_control = list(modelName ="mmc_mnl",
                       modelDescr ="MNL model",
                       indivID ="ID",
                       nCores=1)
@@ -90,7 +90,7 @@ estimate_settings=list(estimationRoutine="BFGS",
                        maxIterations=1000,
                        hessianRoutine="numDeriv")
 
-# apollo_beta = apollo_searchStart(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
+#apollo_beta = apollo_searchStart(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
 
 model = apollo_estimate(apollo_beta, apollo_fixed,
                         apollo_probabilities, apollo_inputs, estimate_settings)
@@ -105,7 +105,7 @@ apollo_saveOutput(model, saveOutput_settings)
 #### POST ESTIMATION                                            ####
 # ################################################################# #
 
-model=apollo_loadModel("apollo_mnl1")
+model=apollo_loadModel("apollo_mnl")
 
 ##################################################################################################################################################################
 # POLICY ANALYSIS
