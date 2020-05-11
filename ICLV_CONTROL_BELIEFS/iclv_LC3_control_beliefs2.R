@@ -323,9 +323,25 @@ apollo_probabilities = function(apollo_beta, apollo_inputs, functionality="estim
 }
 
 # ################################################################# #
+#### CHECK FOR COMPUTATIONAL REQUIREMENTS                         ####
+# ################################################################# #
+
+speedTest_settings=list(
+  nDrawsTry = c(250, 500, 1000, 2000),
+  nCoresTry = c(5,10,15,20,30),
+  nRep      = 10
+)
+
+apollo:::apollo_speedTest(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs, speedTest_settings)
+
+# ################################################################# #
 #### MODEL ESTIMATION                                            ####
 # ################################################################# #
-# estimate settings
+
+### Optional: calculate LL before model estimation
+apollo_llCalc(apollo_beta, apollo_probabilities, apollo_inputs)
+
+### increase iterations, complex model
 estimate_settings=list(estimationRoutine="BFGS",
                        maxIterations=1000,
                        hessianRoutine="numDeriv")
