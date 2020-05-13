@@ -11,7 +11,7 @@ library(tidyverse)
 library(grid)
 
 
-setwd("/Users/slubinga/Documents/GitHub/MMC-Demand/LC_Model")
+setwd("/Users/slubinga/MMC-Demand/LC_Model/")
 
 apollo_initialise()
 
