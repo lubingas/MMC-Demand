@@ -10,7 +10,7 @@ library(ggthemes)
 library(tidyverse)
 library(grid)
 
-setwd("/Users/slubinga/Documents/GitHub/MMC-Demand/MNL_Model/")
+setwd("/Users/slubinga/MMC-Demand/MNL_Model/")
 
 apollo_initialise()
 
