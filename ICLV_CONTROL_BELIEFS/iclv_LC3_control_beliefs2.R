@@ -81,10 +81,17 @@ parnames=c("neither_C1","permhc_C1","dist5_C1","dist15_C1","avail_C1","somepriv_
            "REASSURANCE_tau04_1","REASSURANCE_tau04_2","REASSURANCE_tau04_3","REASSURANCE_tau04_4",
            "REASSURANCE_tau05_1","REASSURANCE_tau05_2","REASSURANCE_tau05_3","REASSURANCE_tau05_4")
 
-#startvalues=rep(0,length(parnames))
+startvalues=rep(1,length(parnames))
+names(startvalues)=parnames
 
 # set starting values
-startvalues=read.csv("lc_3_classes_estimates.csv")[1:39,2]
+est=read.csv("ICLV_3_LC_CONTROL_BELIEFS_Rand_Intercept_iterations.csv")[209,1:152]
+
+est=unlist(est)
+startvalues[match(parnames, names(startvalues))] = est[match(parnames, names(est))]
+startvalues[is.na(startvalues)] = 1
+
+
 startvalues=c(startvalues,
               0.1,0.1,                        # mu and sigma for INTERCEPT for LC parameters, class 2
               0.1,0.1,                        # mu and sigma for INTERCEPT for LC parameters, class 3
@@ -115,7 +122,7 @@ apollo_fixed = c("SOCIALBARS_sig","FEARSURGERY_sig","PRIVACY_sig","TRAVELCOST_si
 ### set parameters for generating drawss 
 apollo_draws = list(
   interDrawsType = "mlhs",
-  interNDraws    = 200,
+  interNDraws    = 500,
   interUnifDraws = c(),
   interNormDraws = c("eta01","eta02","eta03","eta04","eta05","eta06","eta07"), # latent variable disturbances ~N(0,1), assume uncorrelated
   intraDrawsType = "mlhs",
