@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589488138778.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "16F9D4D0",
+    "lastKnownWriteTime" : 1589488681,
+    "last_content_update" : 1589488681602,
+    "path" : "C:/myD/MMC/ICLV_CONTROL_BELIEFS/iclv_LC3_control_beliefs2.R",
+    "project_path" : "ICLV_CONTROL_BELIEFS/iclv_LC3_control_beliefs2.R",
+    "properties" : {
+        "cursorPosition" : "333,70",
+        "scrollLine" : "299"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
