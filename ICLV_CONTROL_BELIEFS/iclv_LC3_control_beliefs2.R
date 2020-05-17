@@ -10,7 +10,7 @@ apollo_control = list(modelName ="ICLV_3_LC_CONTROL_BELIEFS_Rand_Intercept",
                       modelDescr ="ICLV 3 LC WITH CONTROL BELIEFS RANDOM INTERCEPT IN LC FUNCTION",
                       indivID ="ID",
                       mixing =TRUE,
-                      nCores =8)
+                      nCores =4)
 
 database = read.csv("../cleanerdata.csv",header=TRUE)
 
@@ -359,3 +359,9 @@ model = apollo_estimate(apollo_beta, apollo_fixed,
                         apollo_probabilities, apollo_inputs, estimate_settings)
 
 apollo_modelOutput(model)
+modelOutput_settings = list(printPVal=TRUE)
+saveOutput_settings = list(printPVal=TRUE)
+
+apollo_modelOutput(model, modelOutput_settings)
+apollo_saveOutput(model, saveOutput_settings)
+
