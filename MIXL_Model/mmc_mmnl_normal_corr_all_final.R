@@ -10,7 +10,7 @@ library(scales)
 library(ggthemes)
 library(tidyverse)
 
-setwd("/Users/slubinga/Documents/GitHub/MMC-Demand/MIXL_Model")
+setwd("/Users/slubinga/MMC-Demand/MIXL_Model/")
 
 set.seed(01980)
 apollo_initialise()
@@ -168,7 +168,7 @@ apollo_saveOutput(model, saveOutput_settings)
 #### POST ESTIMATION                                            ####
 # ################################################################# #
 
-model=apollo_loadModel("apollo_mmnl_normal corr3")
+model=apollo_loadModel("mmc_mmnl_normal_all_corr")
 
 ##################################################################################################################################################################
 # PROCESS OUTPUT FOR STANDARD DEVIATION AND STANDARD ERRORS OF STANDARD DEVIATION
