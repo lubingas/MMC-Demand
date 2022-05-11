@@ -1,0 +1,316 @@
+Model run by slubinga using Apollo 0.2.7 on R 4.2.0 for Darwin.
+www.ApolloChoiceModelling.com
+
+Model name                       : mmc_mnl
+Model description                : MNL model
+Model run at                     : 2022-05-08 15:00:27
+Estimation method                : bfgs
+Model diagnosis                  : successful convergence 
+Number of individuals            : 406
+Number of rows in database       : 4872
+Number of modelled outcomes      : 4872
+
+Number of cores used             :  1 
+Model without mixing
+
+LL(start)                        : -5352.44
+LL(0)                            : -5352.44
+LL(C)                            : -4180.47
+LL(final)                        : -3703.08
+Rho-square (0)                   :  0.3082 
+Adj.Rho-square (0)               :  0.3057 
+Rho-square (C)                   :  0.1142 
+Adj.Rho-square (C)               :  0.1111 
+AIC                              :  7432.16 
+BIC                              :  7516.55 
+
+Estimated parameters             :  13
+Time taken (hh:mm:ss)            :  00:00:10.4 
+     pre-estimation              :  00:00:1.42 
+     estimation                  :  00:00:3.73 
+     post-estimation             :  00:00:5.25 
+Iterations                       :  24  
+Min abs eigenvalue of Hessian    :  36.30997 
+
+Unconstrained optimisation.
+
+Estimates:
+                Estimate        s.e.   t.rat.(0)  p(1-sided)    Rob.s.e. Rob.t.rat.(0)  p(1-sided)
+neither         -1.49700     0.12810     -11.686    0.000000     0.14756       -10.145    0.000000
+permhc           0.81087     0.07589      10.684    0.000000     0.08315         9.752    0.000000
+dist5           -0.17554     0.10419      -1.685    0.046010     0.08563        -2.050    0.020177
+dist15          -0.22283     0.09333      -2.387    0.008482     0.08244        -2.703    0.003435
+avail            0.07293     0.01267       5.757   4.284e-09     0.01206         6.045   7.461e-10
+somepriv        -0.09395     0.04793      -1.960    0.024998     0.04514        -2.081    0.018699
+notpriv         -0.15427     0.04711      -3.275  5.2866e-04     0.04259        -3.622  1.4622e-04
+device          -0.54146     0.04008     -13.510    0.000000     0.08051        -6.725   8.777e-12
+voucher          0.16022     0.12138       1.320    0.093434     0.09141         1.753    0.039825
+cash             0.41505     0.12856       3.228  6.2223e-04     0.11456         3.623  1.4561e-04
+pricenone       -0.01843     0.01540      -1.197    0.115652     0.01772        -1.040    0.149143
+pricevoucher    -0.03487     0.01484      -2.350    0.009387     0.01271        -2.742    0.003051
+pricecash       -0.02765     0.01569      -1.762    0.038995     0.01345        -2.056    0.019886
+
+
+Overview of choices for MNL model component :
+                                    opt1    opt2 neither
+Times available                  4872.00 4872.00 4872.00
+Times chosen                     2289.00 2337.00  246.00
+Percentage chosen overall          46.98   47.97    5.05
+Percentage chosen when available   46.98   47.97    5.05
+
+
+Classical covariance matrix:
+                  neither       permhc        dist5       dist15        avail     somepriv      notpriv       device      voucher
+neither          0.016410   6.4717e-04     0.003994     0.002427   8.0950e-04     0.001311     0.001416     0.001309     0.002582
+permhc         6.4717e-04     0.005760    -0.005129    -0.004788   3.1017e-04    9.340e-05  -2.2821e-04  -8.8229e-04  -7.8402e-04
+dist5            0.003994    -0.005129     0.010855     0.008499   -6.075e-05  -2.7871e-04   3.7191e-04   8.7116e-04   4.6847e-04
+dist15           0.002427    -0.004788     0.008499     0.008711   -3.575e-05  -3.1445e-04   1.1717e-04   3.3356e-04    5.771e-05
+avail          8.0950e-04   3.1017e-04   -6.075e-05   -3.575e-05   1.6048e-04   -7.237e-05   -4.369e-05    3.940e-05   2.3365e-04
+somepriv         0.001311    9.340e-05  -2.7871e-04  -3.1445e-04   -7.237e-05     0.002298     0.001165    7.996e-05  -9.8262e-04
+notpriv          0.001416  -2.2821e-04   3.7191e-04   1.1717e-04   -4.369e-05     0.001165     0.002219   1.9107e-04  -9.4154e-04
+device           0.001309  -8.8229e-04   8.7116e-04   3.3356e-04    3.940e-05    7.996e-05   1.9107e-04     0.001606   3.1281e-04
+voucher          0.002582  -7.8402e-04   4.6847e-04    5.771e-05   2.3365e-04  -9.8262e-04  -9.4154e-04   3.1281e-04     0.014734
+cash           2.3191e-04     0.002671    -0.003597    -0.003028  -2.5370e-04   5.2721e-04   5.0001e-04    -0.001024    -0.004992
+pricenone      7.5306e-04    3.219e-05  -3.1447e-04  -2.7910e-04    5.988e-06   1.4058e-04    5.287e-05    1.393e-05   3.1553e-04
+pricevoucher  -3.2329e-04   -7.717e-05   1.8767e-04   2.3760e-04    1.349e-05  -1.9149e-04  -1.6077e-04   -8.727e-05     0.001377
+pricecash     -5.6180e-04   2.9619e-04  -3.1013e-04  -1.8261e-04   -4.295e-05   -2.567e-06    2.378e-05  -1.7471e-04  -9.4497e-04
+                     cash    pricenone pricevoucher    pricecash
+neither        2.3191e-04   7.5306e-04  -3.2329e-04  -5.6180e-04
+permhc           0.002671    3.219e-05   -7.717e-05   2.9619e-04
+dist5           -0.003597  -3.1447e-04   1.8767e-04  -3.1013e-04
+dist15          -0.003028  -2.7910e-04   2.3760e-04  -1.8261e-04
+avail         -2.5370e-04    5.988e-06    1.349e-05   -4.295e-05
+somepriv       5.2721e-04   1.4058e-04  -1.9149e-04   -2.567e-06
+notpriv        5.0001e-04    5.287e-05  -1.6077e-04    2.378e-05
+device          -0.001024    1.393e-05   -8.727e-05  -1.7471e-04
+voucher         -0.004992   3.1553e-04     0.001377  -9.4497e-04
+cash             0.016528   3.9526e-04  -8.5237e-04     0.001656
+pricenone      3.9526e-04   2.3708e-04   -7.881e-05   -6.230e-05
+pricevoucher  -8.5237e-04   -7.881e-05   2.2012e-04   -6.663e-05
+pricecash        0.001656   -6.230e-05   -6.663e-05   2.4609e-04
+
+Robust covariance matrix:
+                  neither       permhc        dist5       dist15        avail     somepriv      notpriv       device      voucher
+neither          0.021773     0.004779   4.0600e-04  -7.9215e-04   6.8582e-04     0.001218     0.001049   1.8161e-04     0.003955
+permhc           0.004779     0.006913    -0.004409    -0.004351   3.5698e-04   3.0189e-04  -1.4175e-04    -0.002665   2.5467e-04
+dist5          4.0600e-04    -0.004409     0.007332     0.006312   -3.225e-05  -4.6088e-04   2.4502e-04     0.001442   2.2320e-04
+dist15        -7.9215e-04    -0.004351     0.006312     0.006796   -8.914e-05  -7.3063e-04  -2.2664e-04     0.001288  -5.9252e-04
+avail          6.8582e-04   3.5698e-04   -3.225e-05   -8.914e-05   1.4554e-04   -6.428e-05   -6.002e-05  -1.8514e-04   3.1158e-04
+somepriv         0.001218   3.0189e-04  -4.6088e-04  -7.3063e-04   -6.428e-05     0.002038     0.001170   2.5320e-04  -8.3961e-04
+notpriv          0.001049  -1.4175e-04   2.4502e-04  -2.2664e-04   -6.002e-05     0.001170     0.001814   3.4580e-04   -9.848e-05
+device         1.8161e-04    -0.002665     0.001442     0.001288  -1.8514e-04   2.5320e-04   3.4580e-04     0.006482  -8.4827e-04
+voucher          0.003955   2.5467e-04   2.2320e-04  -5.9252e-04   3.1158e-04  -8.3961e-04   -9.848e-05  -8.4827e-04     0.008356
+cash             0.003213     0.003051    -0.003980    -0.004175  -1.2092e-04   8.7409e-04   8.2078e-04    -0.001147  -8.4532e-04
+pricenone      8.7965e-04    3.125e-05  -2.3694e-04  -3.4877e-04   -5.144e-06   2.5277e-04   1.8337e-04   -2.752e-05   3.7409e-04
+pricevoucher  -2.0071e-04   -5.459e-05   2.7604e-04   2.9382e-04    3.858e-05  -2.1081e-04  -1.3245e-04  -1.0272e-04   5.8463e-04
+pricecash     -2.5182e-04   1.9560e-04  -1.8697e-04  -1.5326e-04   -1.636e-05    5.268e-05    4.850e-05   -6.136e-05  -5.2887e-04
+                     cash    pricenone pricevoucher    pricecash
+neither          0.003213   8.7965e-04  -2.0071e-04  -2.5182e-04
+permhc           0.003051    3.125e-05   -5.459e-05   1.9560e-04
+dist5           -0.003980  -2.3694e-04   2.7604e-04  -1.8697e-04
+dist15          -0.004175  -3.4877e-04   2.9382e-04  -1.5326e-04
+avail         -1.2092e-04   -5.144e-06    3.858e-05   -1.636e-05
+somepriv       8.7409e-04   2.5277e-04  -2.1081e-04    5.268e-05
+notpriv        8.2078e-04   1.8337e-04  -1.3245e-04    4.850e-05
+device          -0.001147   -2.752e-05  -1.0272e-04   -6.136e-05
+voucher       -8.4532e-04   3.7409e-04   5.8463e-04  -5.2887e-04
+cash             0.013124   7.7850e-04  -7.1312e-04   9.7839e-04
+pricenone      7.7850e-04   3.1400e-04  -1.2857e-04   -6.007e-05
+pricevoucher  -7.1312e-04  -1.2857e-04   1.6165e-04   -1.188e-05
+pricecash      9.7839e-04   -6.007e-05   -1.188e-05   1.8082e-04
+
+Classical correlation matrix:
+                  neither       permhc        dist5       dist15        avail     somepriv      notpriv       device      voucher
+neither           1.00000      0.06657      0.29924     0.203012      0.49883     0.213423      0.23465      0.25498     0.166021
+permhc            0.06657      1.00000     -0.64871    -0.675934      0.32262     0.025674     -0.06383     -0.29008    -0.085107
+dist5             0.29924     -0.64871      1.00000     0.874045     -0.04603    -0.055806      0.07578      0.20863     0.037042
+dist15            0.20301     -0.67593      0.87404     1.000000     -0.03024    -0.070288      0.02665      0.08918     0.005094
+avail             0.49883      0.32262     -0.04603    -0.030238      1.00000    -0.119169     -0.07321      0.07761     0.151948
+somepriv          0.21342      0.02567     -0.05581    -0.070288     -0.11917     1.000000      0.51590      0.04162    -0.168878
+notpriv           0.23465     -0.06383      0.07578     0.026650     -0.07321     0.515899      1.00000      0.10120    -0.164656
+device            0.25498     -0.29008      0.20863     0.089176      0.07761     0.041621      0.10120      1.00000     0.064301
+voucher           0.16602     -0.08511      0.03704     0.005094      0.15195    -0.168878     -0.16466      0.06430     1.000000
+cash              0.01408      0.27375     -0.26855    -0.252343     -0.15577     0.085551      0.08256     -0.19868    -0.319863
+pricenone         0.38180      0.02755     -0.19603    -0.194218      0.03070     0.190471      0.07289      0.02257     0.168823
+pricevoucher     -0.17010     -0.06854      0.12140     0.171587      0.07179    -0.269254     -0.23002     -0.14677     0.764824
+pricecash        -0.27957      0.24879     -0.18975    -0.124725     -0.21611    -0.003414      0.03218     -0.27788    -0.496259
+                     cash    pricenone pricevoucher    pricecash
+neither           0.01408      0.38180     -0.17010    -0.279568
+permhc            0.27375      0.02755     -0.06854     0.248789
+dist5            -0.26855     -0.19603      0.12140    -0.189749
+dist15           -0.25234     -0.19422      0.17159    -0.124725
+avail            -0.15577      0.03070      0.07179    -0.216107
+somepriv          0.08555      0.19047     -0.26925    -0.003414
+notpriv           0.08256      0.07289     -0.23002     0.032177
+device           -0.19868      0.02257     -0.14677    -0.277882
+voucher          -0.31986      0.16882      0.76482    -0.496259
+cash              1.00000      0.19968     -0.44688     0.821089
+pricenone         0.19968      1.00000     -0.34497    -0.257916
+pricevoucher     -0.44688     -0.34497      1.00000    -0.286291
+pricecash         0.82109     -0.25792     -0.28629     1.000000
+
+Robust correlation matrix:
+                  neither       permhc        dist5       dist15        avail     somepriv      notpriv       device      voucher
+neither           1.00000      0.38957      0.03213     -0.06512      0.38527      0.18289      0.16692      0.01529      0.29324
+permhc            0.38957      1.00000     -0.61934     -0.63480      0.35590      0.08044     -0.04003     -0.39817      0.03351
+dist5             0.03213     -0.61934      1.00000      0.89427     -0.03122     -0.11924      0.06718      0.20916      0.02852
+dist15           -0.06512     -0.63480      0.89427      1.00000     -0.08963     -0.19635     -0.06455      0.19402     -0.07863
+avail             0.38527      0.35590     -0.03122     -0.08963      1.00000     -0.11805     -0.11680     -0.19061      0.28254
+somepriv          0.18289      0.08044     -0.11924     -0.19635     -0.11805      1.00000      0.60841      0.06967     -0.20348
+notpriv           0.16692     -0.04003      0.06718     -0.06455     -0.11680      0.60841      1.00000      0.10083     -0.02529
+device            0.01529     -0.39817      0.20916      0.19402     -0.19061      0.06967      0.10083      1.00000     -0.11526
+voucher           0.29324      0.03351      0.02852     -0.07863      0.28254     -0.20348     -0.02529     -0.11526      1.00000
+cash              0.19007      0.32034     -0.40574     -0.44209     -0.08749      0.16903      0.16821     -0.12435     -0.08072
+pricenone         0.33643      0.02121     -0.15616     -0.23876     -0.02406      0.31602      0.24295     -0.01929      0.23095
+pricevoucher     -0.10698     -0.05164      0.25356      0.28034      0.25153     -0.36733     -0.24458     -0.10034      0.50304
+pricecash        -0.12691      0.17495     -0.16238     -0.13826     -0.10083      0.08680      0.08468     -0.05668     -0.43027
+                     cash    pricenone pricevoucher    pricecash
+neither           0.19007      0.33643     -0.10698     -0.12691
+permhc            0.32034      0.02121     -0.05164      0.17495
+dist5            -0.40574     -0.15616      0.25356     -0.16238
+dist15           -0.44209     -0.23876      0.28034     -0.13826
+avail            -0.08749     -0.02406      0.25153     -0.10083
+somepriv          0.16903      0.31602     -0.36733      0.08680
+notpriv           0.16821      0.24295     -0.24458      0.08468
+device           -0.12435     -0.01929     -0.10034     -0.05668
+voucher          -0.08072      0.23095      0.50304     -0.43027
+cash              1.00000      0.38350     -0.48960      0.63512
+pricenone         0.38350      1.00000     -0.57066     -0.25209
+pricevoucher     -0.48960     -0.57066      1.00000     -0.06951
+pricecash         0.63512     -0.25209     -0.06951      1.00000
+
+ 20 worst outliers in terms of lowest average per choice prediction:
+  ID Avg prob per choice
+ 388           0.1267881
+ 166           0.1307186
+ 338           0.1532980
+ 201           0.1623735
+ 270           0.1731321
+ 387           0.1731321
+  96           0.1873057
+ 111           0.2035358
+ 112           0.2037901
+ 197           0.2062371
+ 171           0.2174545
+ 195           0.2338454
+  42           0.2344289
+ 228           0.2395157
+ 280           0.2395157
+ 152           0.2401582
+  35           0.2411532
+ 110           0.2411532
+ 154           0.2411532
+  88           0.2418836
+
+Changes in parameter estimates from starting values:
+                 Initial    Estimate  Difference
+neither            0.000    -1.49700    -1.49700
+permhc             0.000     0.81087     0.81087
+dist5              0.000    -0.17554    -0.17554
+dist15             0.000    -0.22283    -0.22283
+avail              0.000     0.07293     0.07293
+somepriv           0.000    -0.09395    -0.09395
+notpriv            0.000    -0.15427    -0.15427
+device             0.000    -0.54146    -0.54146
+voucher            0.000     0.16022     0.16022
+cash               0.000     0.41505     0.41505
+pricenone          0.000    -0.01843    -0.01843
+pricevoucher       0.000    -0.03487    -0.03487
+pricecash          0.000    -0.02765    -0.02765
+
+Settings and functions used in model definition:
+
+apollo_control
+--------------
+                       Value                                                    
+modelName              "mmc_mnl"                                                
+modelDescr             "MNL model"                                              
+indivID                "ID"                                                     
+nCores                 "1"                                                      
+debug                  "FALSE"                                                  
+workInLogs             "FALSE"                                                  
+seed                   "13"                                                     
+mixing                 "FALSE"                                                  
+HB                     "FALSE"                                                  
+noValidation           "FALSE"                                                  
+noDiagnostics          "FALSE"                                                  
+calculateLLC           "TRUE"                                                   
+outputDirectory        "/Users/slubinga/MMC-Demand/Analytical Models/MNL_Model/"
+panelData              "TRUE"                                                   
+analyticGrad           "TRUE"                                                   
+analyticGrad_manualSet "FALSE"                                                  
+
+Hessian routines attempted
+--------------
+numerical second derivative of LL (using numDeriv)
+
+Scaling in estimation
+--------------
+                  Value
+neither      1.49699634
+permhc       0.81086323
+dist5        0.17554139
+dist15       0.22282672
+avail        0.07292937
+somepriv     0.09395218
+notpriv      0.15427009
+device       0.54145847
+voucher      0.16021580
+cash         0.41505353
+pricenone    0.01843075
+pricevoucher 0.03486594
+pricecash    0.02764823
+
+Scaling used in computing Hessian
+--------------
+                  Value
+neither      1.49699828
+permhc       0.81086505
+dist5        0.17554150
+dist15       0.22282658
+avail        0.07292934
+somepriv     0.09395216
+notpriv      0.15427012
+device       0.54145822
+voucher      0.16021585
+cash         0.41505320
+pricenone    0.01843075
+pricevoucher 0.03486595
+pricecash    0.02764821
+
+
+apollo_probabilities
+--------------------
+function(apollo_beta, apollo_inputs, functionality="estimate") {
+  
+  ### Attach inputs and detach after function exit
+  apollo_attach (apollo_beta, apollo_inputs)
+  on.exit(apollo_detach(apollo_beta,apollo_inputs))
+  
+  ### Create list of probabilities P
+  P=list()
+  
+  ### List of utilities : these must use the same names as in mnl_settings , order is irrelevant
+  V=list()
+  
+  V[['opt1']] = permhc*permhc1+dist5*distance51+dist15*distance151+avail*available1+device*device1+somepriv*someprivate1+notpriv*notprivate1+voucher*voucher1+cash*cash1+pricenone*pricenone1+pricevoucher*pricevoucher1+pricecash*pricecash1
+  V[['opt2']] = permhc*permhc2+dist5*distance52+dist15*distance152+avail*available2+device*device2+somepriv*someprivate2+notpriv*notprivate2+voucher*voucher2+cash*cash2+pricenone*pricenone2+pricevoucher*pricevoucher2+pricecash*pricecash2
+  V[['neither']] = neither
+  
+  ### Define settings for MNL model component
+  mnl_settings = list(
+    alternatives = c(opt1=1, opt2=2, neither=3),
+    avail = list(opt1=1, opt2=1, neither=1),
+    choiceVar = choice,
+    V=V)
+  ### Compute probabilities using MNL model
+  P[['model']] = apollo_mnl(mnl_settings, functionality)
+  
+  ### Take product across observation for same individual
+  P = apollo_panelProd(P, apollo_inputs, functionality)
+  
+  ### Prepare and return outputs of function
+  P = apollo_prepareProb(P, apollo_inputs, functionality)
+  return(P)
+}
+<bytecode: 0x7f814c740ed8>
