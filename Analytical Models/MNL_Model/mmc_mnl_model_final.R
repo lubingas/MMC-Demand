@@ -7,6 +7,7 @@ library(grid)
 library(svglite)
 library(paletteer)
 library(ggpubr)
+library(scales)
 
 # alot of output, so I set my default directory to where i can find my code to run the model 
 #and output results in the same directory
@@ -192,7 +193,7 @@ mnl_choices = ggplot(res, aes(fill=name, y=value, x=policy)) +
   geom_text(aes(label = ifelse((value > 0.03), percent(value, accuracy = 1), "")), 
             size = 3,
             fontface = "bold",
-            family = "Helvetica Neue", 
+            family = "Lato", 
             position = position_stack(vjust = 0.5)) + 
   theme(plot.title = element_blank(),
         axis.line.y = element_line(size = 0.5, colour = "black"),
@@ -203,8 +204,8 @@ mnl_choices = ggplot(res, aes(fill=name, y=value, x=policy)) +
         plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
-        axis.text.x=element_text(size=9, face="bold", family="Helvetica Neue"),
-        axis.text.y=element_text(size=9, face="bold", family="Helvetica Neue"),
+        axis.text.x=element_text(size=9, face="bold", family="Lato"),
+        axis.text.y=element_text(size=9, face="bold", family="Lato"),
         legend.position="none",
         legend.text=element_text(size=9),
         #axis.ticks = element_blank(),
@@ -213,18 +214,18 @@ mnl_choices = ggplot(res, aes(fill=name, y=value, x=policy)) +
         plot.margin = unit(c(0.6, 0, 0.3, 0.1), "cm"))
 
 print(mnl_choices)
-grid.circle(x = unit(0.05, "npc"), y = unit(0.97, "npc"), r = 0.03, gp = gpar(lwd=2))
-grid.text("A", x = unit(0.05, "npc"), y = unit(0.97, "npc"), gp = gpar(fontface = "bold", fontsize=11))
+grid.circle(x = unit(0.05, "npc"), y = unit(0.96, "npc"), r = 0.025, gp = gpar(lwd=2))
+grid.text("A", x = unit(0.05, "npc"), y = unit(0.96, "npc"), gp = gpar(fontface = "bold", fontsize=11, family="Lato"))
 
 mnl_choices_plot = grid.grab()
 
 ggsave(file="../../Manuscripts/mnl_predictions.svg", device = "svg", 
-       plot=mnl_choices_plot, width=4.2, height=2.6, bg = "transparent")
+       plot=mnl_choices_plot, width=5, height=3, bg = "transparent")
 
 # extract legend
 plots_title = get_legend(mnl_choices + 
                            theme(legend.position="bottom",
-                                 legend.text=element_text(size=9, face="bold", family="Helvetica Neue"),
+                                 legend.text=element_text(size=9, face="bold", family="Lato"),
                                  legend.title=element_blank(),
                                  plot.margin=grid::unit(c(0,0,0,0), "mm"),
                                  #plot.margin = unit(c(0, 0, 0, 0), "cm"),
@@ -235,8 +236,3 @@ plots_title = get_legend(mnl_choices +
 
 as_ggplot(plots_title)
 ggsave(file="../../Manuscripts/legend.svg", plot=as_ggplot(plots_title), width=5, height=0.5)
-
-svg(file="../../Manuscripts/legend2.svg", width=5, height=0.5)
-par(mar=c(0,0,0,0))
-as_ggplot(plots_title)
-dev.off()

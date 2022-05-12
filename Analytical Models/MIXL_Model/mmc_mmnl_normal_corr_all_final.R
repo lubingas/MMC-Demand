@@ -247,6 +247,8 @@ cbind(est[1:13], sigp_est, est_ser, est_p, sds, sds_ser, sds_p)
 restable = cbind(names(est[1:13]), paste0("'",round(est[1:13],3), sigp_est, " (",round(est_ser,3),")"), paste0("'",round(sds,3), sigp_sds, " (",round(sds_ser,3),")"))
 write.csv(restable,"restable.csv")
 
+#broom::tidy(model)
+
 ##################################################################################################################################################################
 # POLICY ANALYSIS
 ##################################################################################################################################################################
@@ -380,7 +382,7 @@ mmnl_choices = ggplot(res, aes(fill=name, y=value, x=policy)) +
   geom_text(aes(label = ifelse((value > 0.03), percent(value, accuracy = 1), "")), 
             size = 3,
             fontface = "bold",
-            family = "Helvetica Neue", 
+            family = "Lato", 
             position = position_stack(vjust = 0.5)) + 
   theme(plot.title = element_blank(),
         axis.line.y = element_line(size = 0.5, colour = "black"),
@@ -391,8 +393,8 @@ mmnl_choices = ggplot(res, aes(fill=name, y=value, x=policy)) +
         plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
-        axis.text.x=element_text(size=9, face="bold", family="Helvetica Neue"),
-        axis.text.y=element_text(size=9, face="bold", family="Helvetica Neue"),
+        axis.text.x=element_text(size=9, face="bold", family="Lato"),
+        axis.text.y=element_text(size=9, face="bold", family="Lato"),
         legend.position="none",
         legend.text=element_text(size=9),
         #axis.ticks = element_blank(),
@@ -401,15 +403,15 @@ mmnl_choices = ggplot(res, aes(fill=name, y=value, x=policy)) +
         plot.margin = unit(c(0.6, 0, 0.3, 0.1), "cm"))
 
 print(mmnl_choices)
-grid.circle(x = unit(0.05, "npc"), y = unit(0.97, "npc"), r = 0.03, gp = gpar(lwd=2))
-grid.text("B", x = unit(0.05, "npc"), y = unit(0.97, "npc"), gp = gpar(fontface = "bold", fontsize=11))
+grid.circle(x = unit(0.05, "npc"), y = unit(0.96, "npc"), r = 0.03, gp = gpar(lwd=2))
+grid.text("B", x = unit(0.05, "npc"), y = unit(0.96, "npc"), gp = gpar(fontface = "bold", fontsize=11))
 
 mmnl_choices_plot = grid.grab()
 
 ggsave(file="../../Manuscripts/mmnl_predictions.svg", device = "svg", 
-       plot=mmnl_choices_plot, width=4.2, height=2.6, bg = "transparent")
+       plot=mmnl_choices_plot, width=5, height=3, bg = "transparent")
 
-
+################################################################################################################
 ##ALRETNATIVE APPROACH
 ###GENERATE MY OWN DRAWS, artificially increase sample size to allow for better convergence of simulation
 Ndraws=2000      # set number of draws to use per person and per parameter
@@ -470,7 +472,7 @@ mmnl_choices2 = ggplot(res2, aes(fill=name, y=value, x=policy)) +
   geom_text(aes(label = ifelse((value > 0.03), percent(value, accuracy = 1), "")), 
             size = 3,
             fontface = "bold",
-            family = "Helvetica Neue", 
+            family = "Lato", 
             position = position_stack(vjust = 0.5)) + 
   theme(plot.title = element_blank(),
         axis.line.y = element_line(size = 0.5, colour = "black"),
@@ -481,7 +483,7 @@ mmnl_choices2 = ggplot(res2, aes(fill=name, y=value, x=policy)) +
         plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
-        axis.text.x=element_text(size=9, face="bold", family="Helvetica Neue"),
+        axis.text.x=element_text(size=9, face="bold", family="Lato"),
         axis.text.y=element_text(size=9, face="bold", family="Helvetica Neue"),
         legend.position="none",
         legend.text=element_text(size=9),
@@ -491,10 +493,10 @@ mmnl_choices2 = ggplot(res2, aes(fill=name, y=value, x=policy)) +
         plot.margin = unit(c(0.6, 0, 0.3, 0.1), "cm"))
 
 print(mmnl_choices2)
-grid.circle(x = unit(0.05, "npc"), y = unit(0.97, "npc"), r = 0.03, gp = gpar(lwd=2))
-grid.text("B", x = unit(0.05, "npc"), y = unit(0.97, "npc"), gp = gpar(fontface = "bold", fontsize=11))
+grid.circle(x = unit(0.05, "npc"), y = unit(0.96, "npc"), r = 0.025, gp = gpar(lwd=2))
+grid.text("B", x = unit(0.05, "npc"), y = unit(0.96, "npc"), gp = gpar(fontface = "bold", family = "Lato", fontsize=11))
 
 mmnl_choices_plot2 = grid.grab()
 
 ggsave(file="../../Manuscripts/mmnl_predictions2.svg", device = "svg", 
-       plot=mmnl_choices_plot2, width=4.2, height=2.6, bg = "transparent")
+       plot=mmnl_choices_plot2, width=5, height=3, bg = "transparent")

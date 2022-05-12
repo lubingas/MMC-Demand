@@ -176,7 +176,7 @@ apollo_saveOutput(model, saveOutput_settings)
 #### POST ESTIMATION                                            ####
 # ################################################################# #
 
-model=apollo_loadModel("apollo_LC_3_Classes")
+model=apollo_loadModel("mmc_LC_3_Classes")
 
 
 ##################################################################################################################################################################
@@ -272,14 +272,6 @@ S_hat = function(a_hat, model, classUtils, policy_matrix, classProb, est_b = FAL
 a_hat = optimize(function(x) abs(S - S_hat(x, model = model, classUtils = classUtils_vec, policy_matrix = init_policy, classProb = pi, est_b = TRUE)), interval=c(-15, 15), maximum=FALSE)
 #a_hat = 2.948194
 
-# calculate probabilities & last element of list is average predicted probability (probably more efficient ways to do this using lapply)
-policy0_res = S_hat(a_hat = a_hat$minimum, model = model, classUtils = classUtils_vec, policy_matrix = init_policy, classProb = pi)
-policy1_res = S_hat(a_hat = a_hat$minimum, model = model, classUtils = classUtils_vec,policy_matrix = policy1, classProb = pi)
-policy2_res = S_hat(a_hat = a_hat$minimum, model = model, classUtils = classUtils_vec,policy_matrix = policy2, classProb = pi)
-policy3_res = S_hat(a_hat = a_hat$minimum, model = model, classUtils = classUtils_vec,policy_matrix = policy3, classProb = pi)
-policy4_res = S_hat(a_hat = a_hat$minimum, model = model, classUtils = classUtils_vec,policy_matrix = policy4, classProb = pi)
-policy5_res = S_hat(a_hat = a_hat$minimum, model = model, classUtils = classUtils_vec,policy_matrix = policy5, classProb = pi)
-
 # calculate uptake probabilities for policy scenarios and create nested list with data for plotting
 res = lapply(policies, FUN = S_hat, a_hat = a_hat$minimum, model = model, classUtils = classUtils_vec, classProb = pi)
 
@@ -310,7 +302,7 @@ lc_all_classes = ggplot(res[[4]], aes(fill=name, y=value, x=policy)) +
   geom_text(aes(label = ifelse((value > 0.03), percent(value, accuracy = 1), "")), 
             size = 3,
             fontface = "bold",
-            family = "Helvetica Neue", 
+            family = "Lato", 
             position = position_stack(vjust = 0.5)) + 
   theme(plot.title = element_blank(),
         axis.line.y = element_line(size = 0.5, colour = "black"),
@@ -321,8 +313,8 @@ lc_all_classes = ggplot(res[[4]], aes(fill=name, y=value, x=policy)) +
         plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
-        axis.text.x=element_text(size=9, face="bold", family="Helvetica Neue"),
-        axis.text.y=element_text(size=9, face="bold", family="Helvetica Neue"),
+        axis.text.x=element_text(size=9, face="bold", family="Lato"),
+        axis.text.y=element_text(size=9, face="bold", family="Lato"),
         legend.position="none",
         legend.text=element_text(size=9),
         #axis.ticks = element_blank(),
@@ -331,13 +323,13 @@ lc_all_classes = ggplot(res[[4]], aes(fill=name, y=value, x=policy)) +
         plot.margin = unit(c(0.6, 0, 0.3, 0.1), "cm"))
 
 print(lc_all_classes)
-grid.circle(x = unit(0.05, "npc"), y = unit(0.97, "npc"), r = 0.03, gp = gpar(lwd=2))
-grid.text("C", x = unit(0.05, "npc"), y = unit(0.97, "npc"), gp = gpar(fontface = "bold", fontsize=11))
+grid.circle(x = unit(0.05, "npc"), y = unit(0.96, "npc"), r = 0.025, gp = gpar(lwd=2))
+grid.text("C", x = unit(0.05, "npc"), y = unit(0.96, "npc"), gp = gpar(fontface = "bold", fontsize=11, family="Lato"))
 
 lc_all_classes_plot = grid.grab()
 
 ggsave(file="../../Manuscripts/lc_all_classes_predictions.svg", device = "svg", 
-       plot=lc_all_classes_plot, width=4.2, height=2.6, bg = "transparent")
+       plot=lc_all_classes_plot, width=5, height=3, bg = "transparent")
 
 
 ## trickier, now to process data from the other each class and make complicated plot
@@ -345,7 +337,8 @@ plotdata = bind_rows(res[c(1:3)]) %>% # extract data for the classes
   # solve for width issues
   arrange(name, policy) %>% # arrange as class1, class2, class3 repetitively
   group_by(name, policy) %>%
-  mutate(w = cumsum(classProb), wm = w - classProb, wt = wm + (w - wm)/2, mid = (w + wm)/2) %>%
+  # w = right, wm = left
+  mutate(w = cumsum(classProb) + 0.03*c(0:2), wm = w - classProb, wt = wm + (w - wm)/2, mid = (w + wm)/2) %>%
   # solve for height issues
   arrange(policy, class) %>% # arrange by policy then preference i.e., group policy together then sort by name
   group_by(policy, class) %>%
@@ -357,25 +350,25 @@ lc_sep_classes = ggplot(plotdata, aes(ymin = 1-wxm)) +
                      expand = expansion(mult = 0.05)) +
   scale_y_continuous(breaks = seq(0, 1, .2), 
                      labels = percent,
-                     expand = expansion(mult = 0.01)) +
-  geom_rect(stat="identity", aes(xmin = wm, xmax = w, fill=name, ymax=1-wx), color="white", size=0.3) +
+                     expand = expansion(mult = 0.0)) +
+  geom_rect(stat="identity", aes(xmin = wm, xmax = w, fill=name, ymax=1-wx)) +
   scale_fill_manual(values = mCols) +
   #labels=c("LC 1","LC 2","LC 3")) + 
   theme_minimal() + 
   geom_text(aes(x=mid, y=midy, label = ifelse((value > 0.03), percent(value, accuracy=1), "")), 
-            size = 2, 
+            size = 3, 
             fontface = "bold",
-            family = "Helvetica Neue") +
+            family = "Lato") +
   facet_grid(~policy) +
   theme(plot.title = element_blank(),
-        axis.line.y = element_line(size = 0.5, colour = "black"),
+        axis.line.y = element_line(size = 0.5, color = "black"),
         axis.ticks.y = element_line(size = 0.5, color = "black"),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
-        axis.text.y=element_text(size=9, face="bold", family="Helvetica Neue"),
+        axis.text.y=element_text(size=9, face="bold", family="Lato"),
         #axis.text.x=element_text(size=9),
         legend.position="none",
-        strip.text.x = element_text(size = 9, face="bold", family="Helvetica Neue"),
+        strip.text.x = element_text(size = 9, face="bold", family="Lato"),
         #axis.text.y=element_text(size = 18),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
@@ -384,8 +377,8 @@ lc_sep_classes = ggplot(plotdata, aes(ymin = 1-wxm)) +
         plot.margin = unit(c(0.6, 0, 0.3, 0.1), "cm"))
 
 print(lc_sep_classes)
-grid.circle(x = unit(0.05, "npc"), y = unit(0.97, "npc"), r = 0.03, gp = gpar(lwd=2))
-grid.text("D", x = unit(0.05, "npc"), y = unit(0.97, "npc"), gp = gpar(fontface = "bold", fontsize=11))
+grid.circle(x = unit(0.05, "npc"), y = unit(0.96, "npc"), r = 0.025, gp = gpar(lwd=2))
+grid.text("D", x = unit(0.05, "npc"), y = unit(0.96, "npc"), gp = gpar(fontface = "bold", fontsize=11, family="Lato"))
 
 lc_sep_classes_plot = grid.grab()
 
